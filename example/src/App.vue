@@ -1,6 +1,6 @@
 <template>
   <p>Hi</p>
-  <vugel style="width: 500px; height: 500px">
+  <vugel :settings="{clearColor: 'black'}" style="width: 500px; height: 500px">
     <HelloWorld></HelloWorld>
   </vugel>
 </template>
