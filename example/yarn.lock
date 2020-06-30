@@ -2017,10 +2017,10 @@ vue@^3.0.0-beta.14, vue@^3.0.0-beta.15:
     "@vue/runtime-dom" "3.0.0-beta.16"
     "@vue/shared" "3.0.0-beta.16"
 
-vugel@^1.0.16:
-  version "1.0.16"
-  resolved "https://registry.yarnpkg.com/vugel/-/vugel-1.0.16.tgz#5ebee4403df27f94eb710a373e943d0cffb51e3e"
-  integrity sha512-yFeFkf4gSsy6ewytZUjnrdzjd5CKn2Hz44UfY9zfy830k0Xkc4do+RD74+3HIhkQyb5/vnaEX2c8feqFJmEiGA==
+vugel@^1.0.17:
+  version "1.0.17"
+  resolved "https://registry.yarnpkg.com/vugel/-/vugel-1.0.17.tgz#d1fd73f7668c2146f2c25312fe00808953ce057b"
+  integrity sha512-cP9XaDCDa0I5uKR7XOUjzUFoxD4Q98xDq9toGX6Mw3SoEPTHjqG7tABcvtjKEdn6Z0Pfq4P+5v+Xx8dNH4P0ag==
   dependencies:
     tree2d "^1.0.12"
 

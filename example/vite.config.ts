@@ -1,15 +1,13 @@
 import { UserConfig } from "vite";
 import { getCustomBlockTransforms } from "../src";
+import * as Vugel from "vugel";
 
 const config: UserConfig = {
     vueCustomBlockTransforms: getCustomBlockTransforms({
         vugel: {
-            compilerPackage: "vugel/esm",
+            compiler: Vugel,
         },
     }),
-    optimizeDeps: {
-        include: ["vugel/esm"],
-    },
 };
 
 export default config;

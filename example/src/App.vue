@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { Vugel } from "vugel/esm"
+import { Vugel } from "vugel"
 import HelloWorld from './components/HelloWorld.vue'
 
 export default {

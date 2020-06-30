@@ -1,12 +1,12 @@
 import { CustomBlockTransform } from "vite/dist/node/transform";
 import { SharedConfig } from "vite/dist/node/config";
-import { CompilerOptions } from "@vue/compiler-sfc";
+import { CompilerOptions, TemplateCompiler } from "@vue/compiler-sfc";
 
 const blockName = "compiler";
 
 type BlockTransformType = SharedConfig["vueCustomBlockTransforms"];
 export type TemplateCompilerOptions = {
-    compilerPackage: string;
+    compiler: TemplateCompiler;
     options?: CompilerOptions;
 };
 export type TemplateCompilers = Record<string, TemplateCompilerOptions>;
@@ -18,28 +18,21 @@ export const getCustomBlockTransforms = (templateCompilers: TemplateCompilers): 
             const compiler = ctx.query.compiler;
             const currCompiler = templateCompilers[compiler as string];
 
-            const compilerOptions = JSON.stringify(currCompiler.options);
+            const providedOptions = currCompiler.options ?? {
+                prefixIdentifiers: true,
+            };
+
+            const compiledCode = currCompiler.compiler.compile(ctx.code, {
+                mode: "module",
+                ...providedOptions,
+            }).code;
 
             const code = `
-                import Compiler from "${currCompiler.compilerPackage}"
+${compiledCode}
 
-                if (!document.compilerCache) 
-                    document.compilerCache = {}
-                    
-                const compilerName = "${currCompiler.compilerPackage}"
-                if (!document.compilerCache[compilerName]) 
-                    document.compilerCache[compilerName] = { 
-                        compiler: Compiler,
-                        options: JSON.parse(${compilerOptions})
-                    }
-                   
-                export default Comp => {
-                    Comp.compiler = document.compilerCache["${currCompiler.compilerPackage}"].compiler
-                    Comp.compilerOptions = {
-                        ...document.compilerCache["${currCompiler.compilerPackage}"].options,
-                        ...Comp.compilerOptions
-                    }
-                }
+export default Comp => {
+    Comp.render = render
+}
             `;
             console.log(code);
             return code;
