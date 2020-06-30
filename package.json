@@ -1,0 +1,23 @@
+{
+    "name": "custom-compiler-block",
+    "devDependencies": {
+        "@planning.nl/eslint-config": "^1.0.6",
+        "eslint": "^6.8.0",
+        "ts-loader": "^6.2.2",
+        "typescript": "^3.9.5",
+        "vue-loader": "^15.9.3",
+        "vite": "^1.0.0-beta.8",
+        "@vue/compiler-sfc": "^3.0.0-beta.16"
+    },
+    "files": [
+        "lib/**",
+        "dist/**",
+        "src/**"
+    ],
+    "scripts": {
+        "build": "tsc",
+        "watch_build": "tsc --watch",
+        "lint": "eslint -c .eslintrc.js 'src/**/*.ts'",
+        "lint:fix": "eslint --fix -c .eslintrc.js **/*.ts"
+    }
+}
