@@ -6,7 +6,7 @@
         "ts-loader": "^6.2.2",
         "typescript": "^3.9.5",
         "vue-loader": "^16.0.0-beta.4",
-        "vite": "^1.0.0-beta.8",
+        "vite": "^2.9.13",
         "@vue/compiler-sfc": "^3.0.0-beta.16"
     },
     "files": [
